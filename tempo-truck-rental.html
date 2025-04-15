@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tempo & Truck Rental - QuickFix Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-gray-100 relative">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white text-center p-6">
+    <h1 class="text-3xl font-bold">Tempo & Truck Rental Services</h1>
+    <p class="text-lg">Find the best tempo & truck rental services near you!</p>
+  </header>
+
+  <!-- Staff Section -->
+  <section class="py-10 px-5">
+    <h2 class="text-2xl font-bold text-center">Tempo & Truck Rental Staff</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+      
+      <!-- Provider 1 -->
+      <div class="p-4 bg-white rounded-lg shadow-md text-center">
+        <h3 class="text-lg font-bold">G VEERESH</h3>
+        <p class="text-gray-600">🚛 Tempo Rental</p>
+        <p class="text-sm text-gray-500">Experience: 10 Years</p>
+        <p class="text-sm text-gray-500">📍 Location: BALLARI</p>
+        <p class="text-sm text-gray-500">📞 Contact: +91 8431944141</p>
+        <p class="text-sm text-gray-500">Vehicle No: KA34B9020</p>
+      </div>
+
+      <!-- Provider 2 -->
+      <div class="p-4 bg-white rounded-lg shadow-md text-center">
+        <h3 class="text-lg font-bold">Vikram Singh</h3>
+        <p class="text-gray-600">🚛 Tempo & Truck Rental</p>
+        <p class="text-sm text-gray-500">Experience: 8 Years</p>
+        <p class="text-sm text-gray-500">📍 Location: Bangalore</p>
+        <p class="text-sm text-gray-500">📞 Contact: +91 9988776611</p>
+        <p class="text-sm text-gray-500">Vehicle No: KA01AB1234</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Section -->
+  <section class="py-10 px-5">
+    <h2 class="text-2xl font-bold text-center">Make a Payment</h2>
+    <div class="max-w-md mx-auto mt-8 bg-white p-6 rounded-lg shadow">
+      <label for="amount" class="block mb-2 text-lg">Enter Amount (in ₹)</label>
+      <input type="number" id="amount" placeholder="Enter full amount" class="w-full p-2 border border-gray-300 rounded mb-4" />
+      <button onclick="payNow()" class="bg-blue-600 text-white px-6 py-2 rounded-lg w-full">Pay Now</button>
+      <p class="text-sm mt-2 text-gray-500 text-center">10% commission will be deducted automatically.</p>
+    </div>
+  </section>
+
+  <!-- Back to Home -->
+  <div class="text-center mt-8 mb-10">
+    <a href="index.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">Back to Home</a>
+  </div>
+
+  <!-- Razorpay Script -->
+  <script>
+    function payNow() {
+      const rawAmount = parseFloat(document.getElementById('amount').value);
+      if (isNaN(rawAmount) || rawAmount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+
+      const finalAmount = rawAmount * 0.9; // Deduct 10% commission
+      const razorpayAmount = Math.round(finalAmount * 100); // Razorpay expects amount in paise
+
+      const options = {
+        "key": "rzp_live_Of9fEM99MLWf3b", // Replace with your Razorpay Key ID
+        "amount": razorpayAmount,
+        "currency": "INR",
+        "name": "QuickFix Services",
+        "description": "Tempo & Truck Rental Payment",
+        "handler": function (response) {
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+          // Here you would call your server to verify and log the payment
+        },
+        "prefill": {
+          "name": "",
+          "email": "",
+          "contact": ""
+        },
+        "theme": {
+          "color": "#2563EB"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+</body>
+</html>
