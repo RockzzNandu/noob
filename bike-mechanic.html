@@ -1,65 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bike Mechanic - QuickFix Services</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tempo & Truck Rental - QuickFix Services</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-gray-100">
-    <!-- Header -->
-    <header class="bg-blue-600 text-white text-center p-6">
-        <h1 class="text-3xl font-bold">Bike Mechanic Services</h1>
-        <p class="text-lg">Find the best bike mechanics near you!</p>
-    </header>
 
-    <!-- Staff Section -->
-    <section class="py-10 px-5">
-        <h2 class="text-2xl font-bold text-center">Bike Mechanic Staff</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            <!-- Bike Mechanic 1 -->
-            <div class="p-4 bg-white rounded-lg shadow-md text-center">
-                <img src="https://via.placeholder.com/100" alt="Staff Image" class="mx-auto rounded-full mb-3">
-                <h3 class="text-lg font-bold">Amit Verma</h3>
-                <p class="text-gray-600">🏍️ Bike Mechanic</p>
-                <p class="text-sm text-gray-500">Experience: 6 Years</p>
-                <p class="text-sm text-gray-500">📍 Location: Mumbai</p>
-                <p class="text-sm text-gray-500">📞 Contact: +91 9876543211</p>
-            </div>
-            
-            <!-- Bike Mechanic 2 -->
-            <div class="p-4 bg-white rounded-lg shadow-md text-center">
-                <img src="https://via.placeholder.com/100" alt="Staff Image" class="mx-auto rounded-full mb-3">
-                <h3 class="text-lg font-bold">Ravi Kumar</h3>
-                <p class="text-gray-600">🏍️ Bike Mechanic</p>
-                <p class="text-sm text-gray-500">Experience: 4 Years</p>
-                <p class="text-sm text-gray-500">📍 Location: Delhi</p>
-                <p class="text-sm text-gray-500">📞 Contact: +91 9988776654</p>
-            </div>
+<!-- Header -->
+<header class="bg-blue-600 text-white text-center p-6">
+<h1 class="text-3xl font-bold">Tempo & Truck Rental Services</h1>
+<p class="text-lg">Find the best tempo & truck rental services near you!</p>
+</header>
 
-            <div class="p-4 bg-white rounded-lg shadow-md text-center">
-                <img src="https://via.placeholder.com/100" alt="Staff Image" class="mx-auto rounded-full mb-3">
-                <h3 class="text-lg font-bold">Ravi Kumar</h3>
-                <p class="text-gray-600">🏍️ Bike Mechanic</p>
-                <p class="text-sm text-gray-500">Experience: 4 Years</p>
-                <p class="text-sm text-gray-500">📍 Location: Delhi</p>
-                <p class="text-sm text-gray-500">📞 Contact: +91 9988776654</p>
-            </div>
+<!-- Staff Section -->
+<section class="py-10 px-5">
 
-            <div class="p-4 bg-white rounded-lg shadow-md text-center">
-                <img src="https://via.placeholder.com/100" alt="Staff Image" class="mx-auto rounded-full mb-3">
-                <h3 class="text-lg font-bold">Ravi Kumar</h3>
-                <p class="text-gray-600">🏍️ Bike Mechanic</p>
-                <p class="text-sm text-gray-500">Experience: 4 Years</p>
-                <p class="text-sm text-gray-500">📍 Location: Delhi</p>
-                <p class="text-sm text-gray-500">📞 Contact: +91 9988776654</p>
-            </div>
-        </div>
-    </section>
+<h2 class="text-2xl font-bold text-center">Tempo & Truck Rental Staff</h2>
 
-    <!-- Back to Home -->
-    <div class="text-center mt-8">
-        <a href="index.html" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">Back to Home</a>
-    </div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+
+<!-- Provider 1 -->
+<div class="p-4 bg-white rounded-lg shadow-md text-center">
+
+<h3 class="text-lg font-bold">Shiva</h3>
+
+<p class="text-gray-600">🚛 Tempo Rental</p>
+
+<p class="text-sm text-gray-500">Experience: 10 Years</p>
+
+<p class="text-sm text-gray-500">📍 Location: BALLARI</p>
+
+<p class="text-sm text-gray-500">📞 Contact: +91 8431453411</p>
+
+<button onclick="openBooking('Shiva')" 
+class="mt-3 bg-green-600 text-white px-4 py-2 rounded-lg">
+Book Now
+</button>
+
+</div>
+
+<!-- Provider 2 -->
+<div class="p-4 bg-white rounded-lg shadow-md text-center">
+
+<h3 class="text-lg font-bold">Vikram Singh</h3>
+
+<p class="text-gray-600">🚛 Tempo & Truck Rental</p>
+
+<p class="text-sm text-gray-500">Experience: 8 Years</p>
+
+<p class="text-sm text-gray-500">📍 Location: Bangalore</p>
+
+<p class="text-sm text-gray-500">📞 Contact: +91 9988776611</p>
+
+<button onclick="openBooking('Vikram Singh')" 
+class="mt-3 bg-green-600 text-white px-4 py-2 rounded-lg">
+Book Now
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Booking Modal -->
+<div id="bookingModal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center">
+
+<div class="bg-white p-6 rounded-lg w-96">
+
+<h2 class="text-xl font-bold mb-4">Confirm Booking</h2>
+
+<form id="bookingForm">
+
+<input type="hidden" id="driverName">
+
+<input type="text" id="customerName" placeholder="Your Name"
+class="w-full border p-2 mb-3 rounded" required>
+
+<input type="tel" id="phone" placeholder="Phone Number"
+class="w-full border p-2 mb-3 rounded"
+maxlength="10" pattern="[0-9]{10}" required>
+
+<input type="date" id="date"
+class="w-full border p-2 mb-3 rounded" required>
+
+<button type="submit"
+class="bg-blue-600 text-white w-full py-2 rounded">
+Confirm Booking
+</button>
+
+</form>
+
+<button onclick="closeBooking()"
+class="mt-3 text-red-500 w-full">
+Cancel
+</button>
+
+</div>
+
+</div>
+
+<!-- Back to Home -->
+<div class="text-center mt-8 mb-10">
+
+<a href="index.html"
+class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold">
+Back to Home
+</a>
+
+</div>
+
+<!-- JavaScript -->
+
+<script>
+
+function openBooking(driver){
+document.getElementById("bookingModal").classList.remove("hidden");
+document.getElementById("driverName").value = driver;
+}
+
+function closeBooking(){
+document.getElementById("bookingModal").classList.add("hidden");
+}
+
+document.getElementById("bookingForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name = document.getElementById("customerName").value.trim();
+let phone = document.getElementById("phone").value.trim();
+let driver = document.getElementById("driverName").value;
+
+// Name validation
+if(name === ""){
+alert("Please enter your name");
+return;
+}
+
+// Phone validation
+let phonePattern = /^[0-9]{10}$/;
+
+if(!phonePattern.test(phone)){
+alert("Please enter a valid 10 digit phone number");
+return;
+}
+
+// Booking confirmation
+alert("✅ Booking Confirmed!\n\nCustomer: " + name + "\nDriver: " + driver);
+
+// Reset form
+document.getElementById("bookingForm").reset();
+
+// Close modal
+closeBooking();
+
+});
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+let modal = document.getElementById("bookingModal");
+if (event.target === modal) {
+modal.classList.add("hidden");
+}
+}
+
+</script>
+
 </body>
 </html>
